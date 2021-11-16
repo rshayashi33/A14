@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cookies Practice Part 2</title>
+</head>
+<body>
+ <h1>
+     INPUT OF CONTENT:
+     <p></p>
+     <br>
+     <br>
+     <br><br>
+     <br>
+     <br><br>
+     <br>
+     <br>
+     <br><br>
+     <br><br>
+
+
+
+
+
+ </h1>
+<script>
+
+
+    //make a function first for name, the value and how long it lasts
+    function Cookie(name, value, last) {
+        var cookie = name + "=" + encodeURIComponent(value);
+
+
+
+
+
+
+        if(typeof last === "number") {
+                 cookie += "; max-age=" + (last*60*60*24); <!-- expires -->
+            document.cookie = cookie;
+        }
+    }
+//continue the script
+    function Cookiefunction(name) {
+        var cookieArr = document.cookie.split(" ");
+
+
+
+
+        //length
+        for(var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+
+
+            if(name == cookiePair[0].trim()) {
+                  return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        return null;
+    }
+
+
+    function backCookie() {
+        var Name = Cookiefunction("Name");
+        if(Name != null) {
+            alert("Thanks for coming back, " +     Name);
+        } else {
+            Name = prompt("Put your name in the blank:");
+            if(Name != "" && Name != null) {
+
+                                Cookie("Name", Name, 1);
+            }}}
+    window.onload = backCookie;
+
+
+
+
+</script>
+
+<footer>
+    <p>&copy; 2021, New Jersey Institute of Technology, Newark, NJ 07101</p>
+    <p>Name: Remi Hayashi Due Date: 11/9/21</p>
+
+<style>
+    footer {background-color:lightblue; clear: both;}
+
+    footer p {text-align: center; color: white; padding: 1em 0; height:1; }
+</style>
+</footer>
+</body>
+</html>
